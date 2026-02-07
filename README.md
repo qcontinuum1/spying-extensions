@@ -12,6 +12,7 @@ Links:
 - [report](https://github.com/qcontinuum1/spying-extensions/blob/main/report.pdf)
 - [archived report](https://archive.org/details/report_202602)
 - [web.archive.org](https://web.archive.org/web/20260207164030/https://github.com/qcontinuum1/spying-extensions)
+- [archived public key](https://web.archive.org/web/20260207165708/https://github.com/qcontinuum1/spying-extensions/blob/main/qcontinuum.pub)
 
 ## Why?
 
