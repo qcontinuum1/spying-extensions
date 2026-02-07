@@ -7,6 +7,12 @@
 - Those extensions collectively have \~37.4 M installations – roughly 1 % of the global Chrome user base.
 - The actors behind the leaks span the spectrum: Similarweb, Curly Doggo, Offidocs, chinese actors, many smaller obscure data‑brokers, and a mysterious “Big Star Labs” that appears to be an extended arm of Similarweb.
 
+Links:
+- [this repository](https://github.com/qcontinuum1/spying-extensions)
+- [report](https://github.com/qcontinuum1/spying-extensions/blob/main/report.pdf)
+- [archived report](https://archive.org/details/report_202602)
+- [web.archive.org](https://web.archive.org/web/20260207164030/https://github.com/qcontinuum1/spying-extensions)
+
 ## Why?
 
 The problem isn’t new. In 2017, M. Weissbacher et al. research on malicious browser extensions. In 2018, R. Heaton showed that the popular “Stylish” theme manager was silently sending browsing URLs to a remote server. Those past reports cought our eye and motivated us to dig into this issue.
