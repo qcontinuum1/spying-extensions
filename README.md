@@ -30,7 +30,7 @@ We developed our internal research framework that was inspired by M. Weissbacher
 3. Synthetic browsing workloads (increasing consistent payload send to google.com, this request never left docker container).
 4. Simple regression model to see if there is corelation between outbound traffic volume and the length of the URLs we request.
 
-![](./imgs/exts_scanning_setup.png)
+![](./exts_scanning_setup.png)
 
 The idea was simple: if an extension is just reading the page title or injecting CSS, its network footprint should stay flat regardless of how long the URL we visit is. If the outbound traffic grows linearly with the URL length, we have a high probability that the extension is shipping the URL itself (or the entire HTTP request) to a remote server.
 
@@ -51,7 +51,7 @@ If `R ≥ 1.0` we consider the endpoint definitely leaking (the payload size is 
 
 The exfiltrated data can be in some cases sold to data brokers such as Similarweb. Data brokers put together those data and can resell them further to consumers. M. Weissbacher et al. research showed that third parties are interested in scraping those data for unknown reasons, perhaps to monetize the information gathered. We set up our own honeypots and we supplied the extensions honey URLs. 
 
-![](/imgs/honeypot.png)
+![](/honeypot.png)
 
 
 Five distinct IP ranges hit the honeypot repeatedly:
