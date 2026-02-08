@@ -1,5 +1,7 @@
 # *Spying Chrome Extensions: 287 Extensions spying on 37M users*
 
+![](./banner.jpg)
+
 ## Summary
 
 - We built an automated scanning pipeline that runs Chrome inside a Docker container, routes all traffic through a man‑in‑the‑middle (MITM) proxy, and watches for outbound requests that correlate with the length of the URLs we feed it.
@@ -12,7 +14,7 @@ Links:
 - [report](https://github.com/qcontinuum1/spying-extensions/blob/main/report.pdf)
 - [archived report](https://archive.org/details/report_202602)
 - [HTML report](https://rawcdn.githack.com/qcontinuum1/spying-extensions/b07ecf58663ec61acc5c90d7479737b836fa5580/REPORT.html)
-- [web.archive.org](https://web.archive.org/web/20260207164030/https://github.com/qcontinuum1/spying-extensions)
+- [archived HTML report](https://web.archive.org/web/20260208124753/https://rawcdn.githack.com/qcontinuum1/spying-extensions/b07ecf58663ec61acc5c90d7479737b836fa5580/REPORT.html)
 - [archived public key](https://web.archive.org/web/20260207165708/https://github.com/qcontinuum1/spying-extensions/blob/main/qcontinuum.pub)
 
 ## Why?
