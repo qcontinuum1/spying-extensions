@@ -11,6 +11,7 @@ Links:
 - [this repository](https://github.com/qcontinuum1/spying-extensions)
 - [report](https://github.com/qcontinuum1/spying-extensions/blob/main/report.pdf)
 - [archived report](https://archive.org/details/report_202602)
+- [HTML report](https://rawcdn.githack.com/qcontinuum1/spying-extensions/b07ecf58663ec61acc5c90d7479737b836fa5580/REPORT.html)
 - [web.archive.org](https://web.archive.org/web/20260207164030/https://github.com/qcontinuum1/spying-extensions)
 - [archived public key](https://web.archive.org/web/20260207165708/https://github.com/qcontinuum1/spying-extensions/blob/main/qcontinuum.pub)
 
